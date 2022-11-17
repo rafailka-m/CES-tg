@@ -22,8 +22,8 @@ class Database:
     def check_code_exists(self, code: str) -> tuple:
         with self.conn.cursor() as cursor:
             cursor.execute(
-                f'SELECT * FROM "club_qr_qrcodes" '
-                'WHERE "qr_code" = %s',
+                f'SELECT * FROM `club_qr_qrcodes` '
+                'WHERE qr_code = %s',
                 (code,)
             )
             return cursor.fetchone()
@@ -31,7 +31,7 @@ class Database:
     def insert_code(self, name: str, surname: str, code: str, photo: str):
         with self.conn.cursor() as cursor:
             cursor.execute(
-                f'INSERT INTO "club_qr_qrcodes" '
+                f'INSERT INTO `club_qr_qrcodes` '
                 '(name, surname, qr_code, photo, date_create, activated) '
                 'VALUES (%s, %s, %s, %s, NOW(), true)',
                 (name, surname, code, photo)
