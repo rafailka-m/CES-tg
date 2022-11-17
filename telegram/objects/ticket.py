@@ -25,7 +25,7 @@ class Ticket:
         self._generate_ticket_image()
 
     def _upload_to_cloud(self):
-        uploader.upload(self.qr, folder='media')
+        uploader.upload(self.qr, folder='media', public_id=self.code)
 
     def _generate_code(self):
         while True:
