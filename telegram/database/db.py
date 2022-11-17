@@ -1,7 +1,6 @@
 import logging
 
-import psycopg2
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+import pymysql
 
 from settings import config
 
@@ -10,14 +9,13 @@ class Database:
 
     def __init__(self):
         try:
-            self.conn = psycopg2.connect(
+            self.conn = pymysql.connect(
                 user=config.DB_USERNAME,
                 password=config.DB_PASSWORD,
-                dbname=config.DB_NAME,
-                host=config.DB_HOST
+                database=config.DB_NAME,
+                host=config.DB_HOST,
+                autocommit=True
             )
-            self.conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-            self.conn.autocommit = True
         except Exception as ex:
             logging.exception('SOMETHING WENT WRONG WHILE CONNECTIG TO DB - %s' % ex)
 

@@ -5,6 +5,15 @@ import sys
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
+import cloudinary
+
+
+# Cloudinary config
+cloudinary.config(
+    cloud_name = os.getenv('CLOUD_NAME'),
+    api_key = os.getenv('CLOUD_KEY'),
+    api_secret = os.getenv('CLOUD_SECRET')
+)
 
 
 # Telegram config

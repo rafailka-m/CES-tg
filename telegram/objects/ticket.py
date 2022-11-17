@@ -24,6 +24,9 @@ class Ticket:
         self.qr = os.path.abspath('media/qr/')
         self._generate_ticket_image()
 
+    def _upload_to_cloud(self):
+        uploader.upload(self.qr, folder='media')
+
     def _generate_code(self):
         while True:
             for _ in range(32):
@@ -42,6 +45,7 @@ class Ticket:
         qr_img = qr.make_image(fill_color='white', back_color='black')
         qr_img.save(f'media/qr/{self.code}.png')
         self.qr += f'/{self.code}.png'
+        self._upload_to_cloud()
         db_obj.insert_code(name=self.name,
                            surname=self.surname,
                            code=self.code,
@@ -69,6 +73,7 @@ class Ticket:
                 'white',
                 font
             )
+
         template.paste(qr, (config.QR_X, config.QR_Y))
         self.ticket += f'/{self.code}.png'
         template.save(self.ticket)
