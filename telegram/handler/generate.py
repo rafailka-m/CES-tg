@@ -19,7 +19,11 @@ async def generate_ticket_info(callback: types.CallbackQuery, state: FSMContext)
 
 
 async def generate_ticket(message: types.Message, state: FSMContext):
-    name, surname = message.text.split()
+    try:
+        name, surname = message.text.split()
+    except Exception:
+        await message.answer('Ange kundens för- och efternamn!')
+        return
     ticket_obj = Ticket(name=name, surname=surname)
 
     photo = ticket_obj.ticket
