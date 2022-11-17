@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 import pymysql
 
@@ -36,6 +37,24 @@ class Database:
                 'VALUES (%s, %s, %s, %s, NOW(), true)',
                 (name, surname, code, photo)
             )
+
+    def get_qrs_count(self, *args) -> int:
+        '''
+        Gets total qr codes count
+        :param args: `False, True` if you want total count.
+        If you want total count of activated qr codes type `True, False`
+        :return: total count
+        '''
+        sub_query = None
+        if not args[0] and args[1]:
+            sub_query = ''
+        if args[0] and not args[1]:
+            sub_query = ' WHERE activated = false'
+
+        with self.conn.cursor() as cursor:
+            cursor.execute('SELECT * FROM `club_qr_qrcodes`' + sub_query)
+            return len(cursor.fetchall())
+
 
 
 db_obj = Database()

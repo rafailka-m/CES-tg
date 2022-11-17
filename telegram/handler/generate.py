@@ -30,7 +30,7 @@ async def generate_ticket(message: types.Message, state: FSMContext):
     await state.finish()
 
 
-def register_handler(dp: Dispatcher):
+def register_generate_handler(dp: Dispatcher):
     dp.register_message_handler(start, commands='start')
     dp.register_callback_query_handler(generate_ticket_info, text='generate_ticket')
     dp.register_message_handler(generate_ticket, state='input_name')
