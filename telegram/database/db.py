@@ -53,8 +53,8 @@ class Database:
 
         with self.conn.cursor() as cursor:
             cursor.execute('SELECT * FROM `club_qr_qrcodes`' + sub_query)
-            return len(cursor.fetchall())
-
+            result = cursor.fetchall()
+            return len(result) if result else 0
 
 
 db_obj = Database()
