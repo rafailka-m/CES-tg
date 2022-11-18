@@ -42,7 +42,7 @@ class Ticket:
         qr.add_data(f'{config.QR_PATH}{self.code}')
         qr.make()
 
-        qr_img = qr.make_image(fill_color='white', back_color='black')
+        qr_img = qr.make_image(fill_color='white', back_color=(46, 46, 46))
         qr_img.save(f'media/qr/{self.code}.png')
         self.qr += f'/{self.code}.png'
         self._upload_to_cloud()
