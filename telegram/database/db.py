@@ -15,7 +15,8 @@ class Database:
                 password=config.DB_PASSWORD,
                 database=config.DB_NAME,
                 host=config.DB_HOST,
-                autocommit=True
+                autocommit=True,
+                init_command="SET SESSION time_zone='+01:00'"
             )
         except Exception as ex:
             logging.exception('SOMETHING WENT WRONG WHILE CONNECTIG TO DB - %s' % ex)
