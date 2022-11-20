@@ -20,7 +20,7 @@ cloudinary.config(
 TOKEN = os.getenv("TOKEN")
 bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=MemoryStorage())
-STAFF = [5037589848, 1020612694]
+STAFF = [5037589848, 1020612694, 882415145]
 
 
 # Database config

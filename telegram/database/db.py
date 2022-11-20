@@ -56,5 +56,23 @@ class Database:
             result = cursor.fetchall()
             return len(result) if result else 0
 
+    def delete_all_data(self):
+        with self.conn.cursor() as cursor:
+            cursor.execute('DELETE FROM `club_qr_qrcodes`')
+
+    def change_position(self, position: str):
+        with self.conn.cursor() as cursor:
+            cursor.execute(
+                'UPDATE `club_qr_posdate` SET `position` = %s',
+                (position, )
+            )
+
+    def change_date(self, date: str):
+        with self.conn.cursor() as cursor:
+            cursor.execute(
+                'UPDATE `club_qr_posdate` SET `date` = %s',
+                (date, )
+            )
+
 
 db_obj = Database()

@@ -1,6 +1,6 @@
 source .env
 
-source /Users/rafail/Myprojects/Club-Stockholm-Elit-tg/venv/bin/activate
-export PYTHONPATH=/Users/rafail/Myprojects/Club-Stockholm-Elit-tg/telegram
+source /root/rafail/MyProjects/CES-tg/venv/bin/activate
+export PYTHONPATH=/root/rafail/MyProjects/CES-tg/telegram
 
 python3 main.py

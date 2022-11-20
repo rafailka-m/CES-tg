@@ -29,7 +29,7 @@ async def generate_ticket(message: types.Message, state: FSMContext):
     photo = ticket_obj.ticket
     keyboard = generate_keyboard()
     await message.answer_photo(open(photo, 'rb'),
-                               'Framgångsrikt genererat!',
+                               'Successivt genererat!',
                                reply_markup=keyboard)
     await state.finish()
 
