@@ -74,5 +74,15 @@ class Database:
                 (date, )
             )
 
+    def get_position(self):
+        with self.conn.cursor() as cursor:
+            cursor.execute('SELECT position FROM `club_qr_posdate`')
+            return cursor.fetchone()[0]
+
+    def get_date(self):
+        with self.conn.cursor() as cursor:
+            cursor.execute('SELECT date FROM `club_qr_posdate`')
+            return cursor.fetchone()[0]
+
 
 db_obj = Database()

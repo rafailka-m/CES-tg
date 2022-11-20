@@ -62,10 +62,12 @@ class Ticket:
         text_name = f'{self.name} {self.surname}'
         editable_template = ImageDraw.Draw(template)
         qr = Image.open(self.qr)
+        date_str = db_obj.get_date()
+        pos_str = db_obj.get_position()
 
         set_dict = {0: [config.NAME_X, config.NAME_Y, text_name],
-                    1: [config.DATE_X, config.DATE_Y, config.DATE_STR],
-                    2: [config.GEO_X, config.GEO_Y, config.GEO_STR]}
+                    1: [config.DATE_X, config.DATE_Y, date_str],
+                    2: [config.GEO_X, config.GEO_Y, pos_str]}
         for value in set_dict.values():
             editable_template.text(
                 (value[0], value[1]),

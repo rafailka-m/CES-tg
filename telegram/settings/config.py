@@ -32,8 +32,6 @@ DB_NAME = os.getenv('DB_NAME')
 
 # Website config
 QR_PATH = input('Type here full path to qr page (including "/" in the end): ')
-GEO_STR = 'Vretensborgsvägen 5 Hägersten'
-DATE_STR = 'Februari 26, 2023'
 QR_X, QR_Y = 1111, 88
 GEO_X = 118
 GEO_Y = 252
