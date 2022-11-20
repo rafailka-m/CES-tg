@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.handler import CancelHandler
 from aiogram.dispatcher.middlewares import BaseMiddleware
-from aiogram.utils.emoji import emojize
+from emoji import emojize
 
 from settings.config import STAFF
 
