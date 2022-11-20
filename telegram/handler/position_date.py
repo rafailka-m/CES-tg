@@ -36,7 +36,7 @@ async def save_date(message: types.Message, state: FSMContext):
 
 def register_pos_date_handler(dp: Dispatcher):
     dp.register_callback_query_handler(change_pos, text='change_position')
-    dp.register_message_handler(save_pos, state='input_pos')
+    dp.register_message_handler(save_pos, state='input_position')
 
     dp.register_callback_query_handler(change_date, text='change_date')
     dp.register_message_handler(save_date, state='input_date')
