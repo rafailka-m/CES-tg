@@ -10,9 +10,9 @@ import cloudinary
 
 # Cloudinary config
 cloudinary.config(
-    cloud_name = os.getenv('CLOUD_NAME'),
-    api_key = os.getenv('CLOUD_KEY'),
-    api_secret = os.getenv('CLOUD_SECRET')
+    cloud_name=os.getenv('CLOUD_NAME'),
+    api_key=os.getenv('CLOUD_KEY'),
+    api_secret=os.getenv('CLOUD_SECRET')
 )
 
 
