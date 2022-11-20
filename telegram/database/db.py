@@ -18,7 +18,7 @@ class Database:
                 init_command="SET SESSION time_zone='+00:00'"
             )
         except Exception as ex:
-            logging.exception('SOMETHING WENT WRONG WHILE CONNECTIG TO DB - %s' % ex)
+            logging.exception('SOMETHING WENT WRONG WHILE CONNECTING TO DB - %s' % ex)
 
     def check_code_exists(self, code: str) -> tuple:
         with self.conn.cursor() as cursor:
