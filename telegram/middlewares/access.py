@@ -6,8 +6,8 @@ from emoji import emojize
 from settings.config import STAFF
 
 
-SWEDEN_FLAG = emojize(':sweden:')
-UK_FLAG = emojize(':great_britain:')
+SWEDEN_FLAG = emojize(':Sweden:')
+UK_FLAG = emojize(':United_Kingdom:')
 
 
 class AccessMiddleware(BaseMiddleware):
