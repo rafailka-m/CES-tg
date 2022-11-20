@@ -76,12 +76,12 @@ class Database:
 
     def get_position(self):
         with self.conn.cursor() as cursor:
-            cursor.execute('SELECT position FROM `club_qr_posdate`')
+            cursor.execute('SELECT `position` FROM `club_qr_posdate`')
             return cursor.fetchone()[0]
 
     def get_date(self):
         with self.conn.cursor() as cursor:
-            cursor.execute('SELECT date FROM `club_qr_posdate`')
+            cursor.execute('SELECT `date` FROM `club_qr_posdate`')
             return cursor.fetchone()[0]
 
 
