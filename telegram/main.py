@@ -2,6 +2,7 @@ from aiogram import executor
 
 from handler.generate import register_generate_handler
 from handler.statistic import register_statistic_handler
+import middlewares
 from settings.config import dp, logger_init
 
 
